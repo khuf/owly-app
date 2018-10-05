@@ -1,10 +1,23 @@
 import React, { Component } from "react";
+import "bootstrap/dist/css/bootstrap.css";
+import Button from "./button";
 
-class Navbar extends Component {
-  state = {};
+class NavBar extends Component {
+  styles = {};
   render() {
-    return <h1>NavBar</h1>;
+    return (
+      <nav
+        style={this.styles}
+        className="navbar navbar-expand-lg navbar-dark bg-dark"
+      >
+        <span className="navbar-brand mb-5" />
+        <Button />
+        <Button />
+        <Button />
+        <Button />
+      </nav>
+    );
   }
 }
 
-export default Navbar;
+export default NavBar;
