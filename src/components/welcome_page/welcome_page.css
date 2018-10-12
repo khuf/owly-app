@@ -10,11 +10,18 @@ body {
   display: grid;
   grid-template-columns: 1;
 }
+link {
+  background-color: red;
+}
 
 img {
   max-width: 500px;
   max-height: 500px;
   align-self: center;
+  justify-self: center;
+}
+
+h1 {
   justify-self: center;
 }
 
