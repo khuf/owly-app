@@ -1,0 +1,53 @@
+body {
+  background: no-repeat fixed;
+  background-image: url("frontpage_bck.png");
+  background-size: cover;
+}
+
+.logo_area {
+  /*background-color: royalblue;*/
+  height: 470px;
+  display: grid;
+  grid-template-columns: 1;
+}
+
+img {
+  max-width: 500px;
+  max-height: 500px;
+  align-self: center;
+  justify-self: center;
+}
+
+.div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  grid-auto-columns: minmax(100px);
+  /*background-color: bisque;*/
+  grid-gap: 10px;
+}
+
+#input {
+  size: 100;
+  grid-row: 1;
+  justify-self: end;
+  min-width: 200px;
+  width: 40%;
+  height: 50px;
+  background-color: white;
+  border-radius: 20px 0px 0px 20px;
+  box-shadow: 2px 2px 0px 2px rgba(0, 0, 0, 0.3);
+  border: 0px;
+}
+
+#btn {
+  grid-row: 1;
+  grid-column: 2;
+  justify-self: start;
+  background-color: white;
+  min-width: 200px;
+  width: 40%;
+  height: 50px;
+  border-radius: 0px 20px 20px 0px;
+  box-shadow: 2px 2px 0px 2px rgba(0, 0, 0, 0.3);
+}
