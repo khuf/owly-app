@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import "./welcome_page.css";
 import Logo from "./logo.png";
 
-class WelcomePage extends Component {
-  state = {};
+class WelcomePage extends React.Component {
+  navigate() {
+    this.props.history.push("/navbar");
+  }
   render() {
     return (
       <div className="wrapper">
@@ -14,9 +16,15 @@ class WelcomePage extends Component {
           </h1>
         </div>
         <div className="div">
-          <button className="btn" id="btn" type="button">
+          <button
+            onClick={this.navigate.bind(this)}
+            className="btn"
+            id="btn"
+            type="button"
+          >
             LOGIN/REGISTER
           </button>
+
           <input
             id="input"
             type="search"
