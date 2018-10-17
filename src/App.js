@@ -5,6 +5,7 @@ import "@fortawesome/fontawesome-free/css/all.css";
 import "./App.css";
 import WelcomePage from "./components/welcome_page/WelcomePage";
 import Navbar from "./components/Navbar.jsx";
+import Card from "./components/card_template/card.jsx";
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
         <Switch>
           <Route path="/" component={WelcomePage} exact />
           <Route path="/navbar" component={Navbar} />
+          <Route path="/card" component={Card} />
         </Switch>
       </BrowserRouter>
     );
