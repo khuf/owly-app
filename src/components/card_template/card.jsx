@@ -8,6 +8,9 @@ const flip = function() {
 };
 
 class Card extends Component {
+  constructor(props) {
+    super();
+  }
   render() {
     return (
       <div className="container">
@@ -15,8 +18,8 @@ class Card extends Component {
           <div className="card">
             <div className="card__face card__face--front">
               <div className="titleLayer">
-                <h1 className="title">INFO212</h1>
-                <h5 className="subTitle">SYSTEMUTVIKLING</h5>
+                <h1 className="title">{this.props.courseCode}</h1>
+                <h5 className="subTitle">{this.props.courseName}</h5>
               </div>
             </div>
             <div className="card__face card__face--back" />

@@ -11,9 +11,7 @@ class WelcomePage extends React.Component {
       <div className="wrapper">
         <div className="logo_area">
           <img src={Logo} alt="img" />
-          <h1>
-            <font color="white">WELCOME ALL FUCKING COCKBAGS!!</font>
-          </h1>
+          <h1 class="text-white">WELCOME ALL FUCKING COCKBAGS!!</h1>
         </div>
         <div className="div">
           <button

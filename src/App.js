@@ -8,17 +8,35 @@ import Navbar from "./components/Navbar.jsx";
 import Card from "./components/card_template/card.jsx";
 
 class App extends Component {
+  cardProps = {
+    courseCode: "INFO262",
+    courseTitle: "SYSTEMUTVIKLING"
+  };
+
   render() {
     return (
       <BrowserRouter>
         <Switch>
           <Route path="/" component={WelcomePage} exact />
           <Route path="/navbar" component={Navbar} />
-          <Route path="/card" component={Card} />
+          <Route
+            path="/card"
+            render={cardProps => (
+              <Card
+                {...cardProps}
+                courseCode={this.cardProps.courseCode}
+                courseName={this.cardProps.courseTitle}
+              />
+            )}
+          />
         </Switch>
       </BrowserRouter>
     );
   }
 }
+
+const CourseCard = props => {
+  return <Card courseCode={props.courseCode} courseTitle={props.courseTitle} />;
+};
 
 export default App;
