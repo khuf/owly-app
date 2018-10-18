@@ -1,0 +1,89 @@
+/*
+        <div className="#">
+          <a>Emne 1</a>
+          <a>Emne 2</a>
+          <a>Emne 3</a>
+        </div>*/
+
+.navbar {
+  box-shadow: 0px 6px 0px 0px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  width: 100px;
+  height: 88px;
+}
+
+.btn {
+  height: 3rem;
+  width: 9rem;
+  border-radius: 1rem;
+  background-color: #efefef;
+  font-size: 18px;
+  color: gray;
+  font-weight: bold;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*----------progress-shortcut-button----------*/
+.progress-dropdown-content {
+  display: none;
+  border-radius: 1rem;
+  right: 0.7rem;
+  position: absolute;
+  background-color: #f9f9f9;
+  padding: 0;
+  min-width: 20rem;
+  box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.btn:hover {
+  background-color: red;
+  color: white;
+}
+
+.progress-btndrop {
+  font-size: 16px;
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.progress-dropdown-content li {
+  float: none;
+  color: grey;
+  font-size: 20px;
+  padding: 12px 16px;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+}
+
+.progress-dropdown-content li:hover {
+  background-color: #30343a;
+  color: white;
+  border-radius: 1rem;
+}
+
+.progress-btndrop .progress-dropdown-content {
+  display: block;
+  top: 6.5rem;
+}
+
+/*----------account-button----------*/
+.account-btndrop {
+  font-size: 16px;
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}

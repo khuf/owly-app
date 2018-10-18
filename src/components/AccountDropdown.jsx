@@ -21,16 +21,14 @@ class AccountDropdown extends Component {
 
   render() {
     return (
-      <div>
-        <button className="btn btn-info w-100" onClick={this.showMenu}>
-          Jacob
-        </button>
+      <div onClick={this.showMenu} className="progress-btndrop">
+        <button className="btn">Jacob</button>
 
         {this.state.showMenu ? (
-          <ul className="menu list-group w-100">
-            <li className="list-group-item"> Profil </li>
-            <li className="list-group-item"> Dashbord </li>
-            <li className="list-group-item"> Logg ut </li>
+          <ul className="progress-dropdown-content">
+            <li className="#"> Profil </li>
+            <li className="#"> Dashbord </li>
+            <li className="#"> Logg ut </li>
           </ul>
         ) : null}
       </div>
