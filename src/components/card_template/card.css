@@ -1,83 +1,3 @@
-/*body {
-  background-color: #e5e5e5;
-  background-image: url("texture.jpg");
-}
-
-.container {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  background-color: none;
-}
-
-.card {
-  margin: 1rem;
-  width: 15rem;
-  height: 20rem;
-  justify-self: center;
-  align-self: center;
-  background-color: grey;
-  background-image: url("info212.jpg");
-  background-size: cover;
-  border-radius: 1rem;
-}
-
-.infoLayer {
-  background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 0rem 0rem 1rem 1rem;
-  height: 10rem;
-  position: relative;
-  bottom: -10rem;
-  display: grid;
-  grid-template-columns: 1;
-}
-
-.title {
-  color: white;
-  align-self: center;
-  justify-self: center;
-}
-
-.subTitle {
-  color: white;
-  justify-self: center;
-  word-wrap: break-word;
-}
-
-.card:hover {
-  box-shadow: 2px 2px 0px 2px rgba(0, 0, 0, 0.2);
-  width: 15.5rem;
-  height: 21rem;
-  transition: 0.2s;
-}
-
-.card:hover > .infoLayer {
-  height: 11rem;
-  transition: 0.2s;
-}
-
-.card:hover > .infoLayer > .title {
-  font-size: 42px;
-  transition: 0.2s;
-}
-
-.card:hover > .infoLayer > .subTitle {
-  font-size: 26px;
-  transition: 0.2s;
-}
-<div className="container">
-        <div className="card">
-          <div className="infoLayer">
-            <h1 className="title">INFO212</h1>
-            <h4 className="subTitle">SYSTEMUTVIKLING</h4>
-          </div>
-        </div>
-      </div>*/
-
 body {
   background-image: url("texture.jpg");
 }
@@ -114,9 +34,7 @@ body {
 }
 
 .card.is-flipped {
-  transform: rotateY(180deg);
-  width: 400px;
-  height: 520px;
+  transform: rotateY(180deg) scale(2);
   transition: 1s;
   justify-self: center;
 }

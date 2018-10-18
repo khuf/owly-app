@@ -2,35 +2,16 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./card.css";
 
-const flipToBack = function() {
+const flip = function() {
   var card = document.querySelector(".card");
   card.classList.toggle("is-flipped");
-};
-
-const flipToFront = function() {
-  var card = document.querySelector(".card");
-  card.classList.toggle("is-flipped");
-};
-
-let frontToBack = true;
-
-const comp = function() {
-  if (frontToBack) {
-    console.log("flipping to back");
-    flipToBack();
-    frontToBack = false;
-  } else {
-    console.log("flipping to front");
-    flipToFront();
-    frontToBack = true;
-  }
 };
 
 class Card extends Component {
   render() {
     return (
       <div className="container">
-        <div onClick={comp} className="scene scene--card">
+        <div onClick={flip} className="scene scene--card">
           <div className="card">
             <div className="card__face card__face--front">
               <div className="titleLayer">
