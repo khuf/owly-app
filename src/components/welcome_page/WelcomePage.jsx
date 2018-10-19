@@ -1,6 +1,6 @@
+import Logo from "./logo.png";
 import React, { Component } from "react";
 import "./welcome_page.css";
-import Logo from "./logo.png";
 
 class WelcomePage extends React.Component {
   navigate() {
@@ -10,25 +10,45 @@ class WelcomePage extends React.Component {
     return (
       <div className="wrapper">
         <div className="logo_area">
-          <img src={Logo} alt="img" />
-          <h1 class="text-white">WELCOME ALL FUCKING COCKBAGS!!</h1>
+          <img src={Logo} alt="logo" />
+          <h1 class="text-white">
+            WELCOME TO
+            <span class="owly-text"> OWLY</span>
+            <br />
+            <h3>Your personal study companion</h3>
+          </h1>
         </div>
-        <div className="div">
-          <button
-            onClick={this.navigate.bind(this)}
-            className="btn"
-            id="btn"
-            type="button"
-          >
-            LOGIN/REGISTER
-          </button>
 
-          <input
-            id="input"
-            type="search"
-            className="form-control form-control-lg form-control-borderless"
-            placeholder="Search for courses"
-          />
+        <div align="center">
+          <form className="loginForm">
+            <input
+              className="form-control form-control-lg form-control-borderless"
+              placeholder="Enter username"
+              autoFocus
+            />
+
+            <input
+              className="form-control form-control-lg form-control-borderless"
+              placeholder="Enter password"
+            />
+
+            <div className="form-controls-inline" align="center">
+              <input
+                type="search"
+                className="form-control form-control-lg form-control-borderless"
+                placeholder="Search for courses"
+              />
+
+              <button
+                onClick={this.navigate.bind(this)}
+                className="btn"
+                id="btn"
+                type="button"
+              >
+                LOGIN/REGISTER
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     );
