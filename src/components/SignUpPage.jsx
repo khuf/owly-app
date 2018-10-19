@@ -1,30 +1,86 @@
 import React, { Component } from "react";
 import Logo from "../assets/images/logo.png";
 import "../assets/css/welcome_page.css";
+import { auth } from "../firebase";
+
+const INITIAL_STATE = {
+  username: "",
+  email: "",
+  passwordOne: "",
+  passwordTwo: "",
+  error: null
+};
+
+const byPropKey = (propertyName, value) => () => ({
+  [propertyName]: value
+});
 
 class SignUpPage extends Component {
-  state = {};
+  constructor() {
+    super();
+    /*
+    * ... syntaksen betyr at hvert element i INITIAL_STATE skal bli lagt ut i state.
+    * this.state vil se slik ut etterpå:
+    * this.state = {
+    *   username: "",
+    *   email: "",
+    *   passwordOne: "",
+    *   passwordTwo: "",
+    *   error: null
+    * }
+    */
+    this.state = { ...INITIAL_STATE };
+  }
+
+  onSubmit = event => {
+    //Object destructing, username, email, og password one blir lokale variabler
+    //med verdien som tilsvarer de som finnes i this.state for username, email og passwordOne.
+    const { username, email, passwordOne } = this.state;
+
+    auth
+      .doCreateUserWithEmailAndPassword(email, passwordOne)
+      .then(authUser => {
+        this.setState({ ...INITIAL_STATE });
+      })
+      .catch(error => {
+        this.setState(byPropKey("error", error));
+      });
+
+    event.preventDefault();
+  };
 
   render() {
     const byPropKey = (propertyName, value) => () => ({
       [propertyName]: value
     });
-    const { email, password, error } = this.state;
-    const isInvalid = password === "" || email === "";
+    const { username, email, passwordOne, passwordTwo, error } = this.state;
+
+    //Sjekk at passord og email felt ikke er tom. Vi sjekker også at passordOne og passordTo er lik.
+    const isInvalid =
+      username === "" ||
+      passwordOne === "" ||
+      passwordTwo === "" ||
+      email === "" ||
+      passwordOne !== passwordTwo;
     return (
       <div className="wrapper">
         <div className="logo_area">
           <img src={Logo} alt="logo" />
-          <h1 className="text-white">
-            WELCOME TO
-            <span className="owly-text"> OWLY</span>
-            <br />
-            <h3>Your personal study companion</h3>
-          </h1>
+          <h1 className="text-white">Signup</h1>
         </div>
 
         <div align="center">
           <form className="loginForm" onSubmit={this.onSubmit}>
+            <input
+              value={username}
+              onChange={event =>
+                this.setState(byPropKey("username", event.target.value))
+              }
+              className="form-control form-control-lg form-control-borderless"
+              placeholder="Enter username"
+              autoFocus
+            />
+
             <input
               value={email}
               onChange={event =>
@@ -36,13 +92,23 @@ class SignUpPage extends Component {
             />
 
             <input
-              value={password}
+              value={passwordOne}
               type="password"
               onChange={event =>
-                this.setState(byPropKey("password", event.target.value))
+                this.setState(byPropKey("passwordOne", event.target.value))
               }
               className="form-control form-control-lg form-control-borderless"
               placeholder="Enter password"
+            />
+
+            <input
+              value={passwordTwo}
+              type="password"
+              onChange={event =>
+                this.setState(byPropKey("passwordTwo", event.target.value))
+              }
+              className="form-control form-control-lg form-control-borderless"
+              placeholder="Confirm password"
             />
 
             {error && <p className="text-white">{error.message}</p>}
