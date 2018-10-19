@@ -18,8 +18,6 @@ class WelcomePage extends React.Component {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(function() {
-        const itemsRef = firebase.database().ref("courses");
-
         console.log("Success");
       })
       .catch(function(error) {
@@ -28,19 +26,53 @@ class WelcomePage extends React.Component {
         var errorMessage = error.message;
       });
   };
+
+  getData = () => {
+    // Initialize Cloud Firestore through Firebase
+    var db = firebase.firestore();
+
+    // Disable deprecated features
+    db.settings({
+      timestampsInSnapshots: true
+    });
+
+    db.collection("courses")
+      .doc("INFO212")
+      .collection("books")
+      .get()
+      .then(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          console.log(doc.data().title);
+        });
+      });
+
+    /*db.collection("courses")
+      .get()
+      .then(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          console.log(`${doc.id} => ${doc.data()}`);
+        });
+      });*/
+  };
   render() {
     return (
       <div className="wrapper">
         <div className="logo_area">
           <img src={Logo} alt="logo" />
-          <h1 class="text-white">
+          <h1 className="text-white">
             WELCOME TO
-            <span class="owly-text"> OWLY</span>
+            <span className="owly-text"> OWLY</span>
             <br />
             <h3>Your personal study companion</h3>
           </h1>
         </div>
-
+        <button
+          onClick={() => {
+            this.getData();
+          }}
+        >
+          Test
+        </button>
         <div align="center">
           <form className="loginForm">
             <input
