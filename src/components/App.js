@@ -8,6 +8,7 @@ import Navbar from "./Navbar";
 import Card from "./card_template/card.jsx";
 import AddBooksPage from "./AddBooksPage";
 import AccountPage from "./AccountPage";
+import SignUpPage from "./SignUpPage";
 import HomePage from "./Home";
 import * as routes from "../constants/routes";
 
@@ -35,6 +36,7 @@ class App extends Component {
           />
           <Route path="/add" component={AddBooksPage} />
           <Route path="/acc" component={Navbar} />
+          <Route path={routes.SIGN_UP} component={SignUpPage} />
         </Switch>
       </BrowserRouter>
     );
