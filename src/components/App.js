@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "@fortawesome/fontawesome-free/css/all.css";
 import "./App.css";
 import WelcomePage from "./welcome_page/WelcomePage";
-import Navbar from "./Navbar.jsx";
+import Navbar from "./Navbar";
 import Card from "./card_template/card.jsx";
 import AddBooksPage from "./AddBooksPage";
 import AccountPage from "./AccountPage";
@@ -23,7 +23,6 @@ class App extends Component {
         <Switch>
           <Route path="/" component={WelcomePage} exact />
           <Route path={routes.HOME} component={HomePage} />
-          <Route path="account" componenet={AccountPage} />
           <Route
             path="/card"
             render={cardProps => (
@@ -35,6 +34,7 @@ class App extends Component {
             )}
           />
           <Route path="/add" component={AddBooksPage} />
+          <Route path="/acc" component={Navbar} />
         </Switch>
       </BrowserRouter>
     );

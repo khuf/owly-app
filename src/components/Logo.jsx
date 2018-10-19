@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import logo from "../assets/images/logo.png";
-import "../components/Navbar.css";
+import "../assets/css/navbar.css";
 
 class Logo extends Component {
   state = {};

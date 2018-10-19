@@ -1,6 +1,6 @@
-import Logo from "./logo.png";
+import Logo from "../../assets/images/logo.png";
 import React, { Component } from "react";
-import "./welcome_page.css";
+import "../../assets/css/welcome_page.css";
 import { withRouter } from "react-router-dom";
 import { auth } from "../../firebase";
 import * as routes from "../../constants/routes";
