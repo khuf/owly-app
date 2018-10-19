@@ -12,7 +12,7 @@ class Navbar extends Component {
     return (
       <nav className="navbar bg-dark justify-content-around">
         <AccountDropdown />
-        <SearchBar />
+        <SearchBar autofocus="true" />
         <Logo />
         <ProgressButton />
         <FilterButton />
