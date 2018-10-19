@@ -3,9 +3,13 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import "@fortawesome/fontawesome-free/css/all.css";
 import "./App.css";
-import WelcomePage from "./components/welcome_page/WelcomePage";
-import Navbar from "./components/Navbar.jsx";
-import Card from "./components/card_template/card.jsx";
+import WelcomePage from "./welcome_page/WelcomePage";
+import Navbar from "./Navbar.jsx";
+import Card from "./card_template/card.jsx";
+import AddBooksPage from "./AddBooksPage";
+import AccountPage from "./AccountPage";
+import HomePage from "./Home";
+import * as routes from "../constants/routes";
 
 class App extends Component {
   cardProps = {
@@ -18,7 +22,8 @@ class App extends Component {
       <BrowserRouter>
         <Switch>
           <Route path="/" component={WelcomePage} exact />
-          <Route path="/navbar" component={Navbar} />
+          <Route path={routes.HOME} component={HomePage} />
+          <Route path="account" componenet={AccountPage} />
           <Route
             path="/card"
             render={cardProps => (
@@ -29,6 +34,7 @@ class App extends Component {
               />
             )}
           />
+          <Route path="/add" component={AddBooksPage} />
         </Switch>
       </BrowserRouter>
     );

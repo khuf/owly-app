@@ -1,9 +1,31 @@
 import Logo from "./logo.png";
 import React, { Component } from "react";
 import "./welcome_page.css";
-import firebase from "../../firebase.js";
+import { withRouter } from "react-router-dom";
+import { auth } from "../../firebase";
+import * as routes from "../../constants/routes";
+
+const SignInPage = ({ history }) => (
+  <div>
+    <h1>SignIn</h1>
+  </div>
+);
+
+const byPropKey = (propertyName, value) => () => ({
+  [propertyName]: value
+});
+
+const INITIAL_STATE = {
+  email: "",
+  password: "",
+  error: null
+};
 
 class WelcomePage extends React.Component {
+  state = {
+    isLoggedIn: false
+  };
+
   constructor() {
     super();
     this.navigate.bind(this);
@@ -13,48 +35,29 @@ class WelcomePage extends React.Component {
     this.props.history.push("/navbar");
   };
 
-  signin = (email, password) => {
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then(function() {
-        console.log("Success");
+  onSubmit = event => {
+    const { email, password } = this.state;
+
+    const { history } = this.props;
+
+    auth
+      .doSignInWithEmailAndPassword(email, password)
+      .then(() => {
+        this.setState({ ...INITIAL_STATE });
+        history.push(routes.HOME);
       })
-      .catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-      });
-  };
-
-  getData = () => {
-    // Initialize Cloud Firestore through Firebase
-    var db = firebase.firestore();
-
-    // Disable deprecated features
-    db.settings({
-      timestampsInSnapshots: true
-    });
-
-    db.collection("courses")
-      .doc("INFO212")
-      .collection("books")
-      .get()
-      .then(querySnapshot => {
-        querySnapshot.forEach(doc => {
-          console.log(doc.data().title);
-        });
+      .catch(error => {
+        this.setState(byPropKey("error", error));
       });
 
-    /*db.collection("courses")
-      .get()
-      .then(querySnapshot => {
-        querySnapshot.forEach(doc => {
-          console.log(`${doc.id} => ${doc.data()}`);
-        });
-      });*/
+    event.preventDefault();
   };
+
   render() {
+    const { email, password, error } = this.state;
+
+    const isInvalid = password === "" || email === "";
+
     return (
       <div className="wrapper">
         <div className="logo_area">
@@ -66,25 +69,30 @@ class WelcomePage extends React.Component {
             <h3>Your personal study companion</h3>
           </h1>
         </div>
-        <button
-          onClick={() => {
-            this.getData();
-          }}
-        >
-          Test
-        </button>
+
         <div align="center">
-          <form className="loginForm">
+          <form className="loginForm" onSubmit={this.onSubmit}>
             <input
+              value={email}
+              onChange={event =>
+                this.setState(byPropKey("email", event.target.value))
+              }
               className="form-control form-control-lg form-control-borderless"
-              placeholder="Enter username"
+              placeholder="Enter e-mail"
               autoFocus
             />
 
             <input
+              value={password}
+              type="password"
+              onChange={event =>
+                this.setState(byPropKey("password", event.target.value))
+              }
               className="form-control form-control-lg form-control-borderless"
               placeholder="Enter password"
             />
+
+            {error && <p className="text-white">{error.message}</p>}
 
             <div className="form-controls-inline" align="center">
               <input
@@ -94,12 +102,10 @@ class WelcomePage extends React.Component {
               />
 
               <button
-                onClick={() => {
-                  this.signin("test@gmail.com", "testtest");
-                }}
+                disabled={isInvalid}
                 className="btn"
                 id="btn"
-                type="button"
+                type="submit"
               >
                 LOGIN/REGISTER
               </button>
