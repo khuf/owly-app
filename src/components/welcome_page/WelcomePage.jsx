@@ -18,8 +18,9 @@ class WelcomePage extends React.Component {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(function() {
-        console.log(this.props.history);
-        this.props.history.push("/navbar");
+        const itemsRef = firebase.database().ref("courses");
+
+        console.log("Success");
       })
       .catch(function(error) {
         // Handle Errors here.
