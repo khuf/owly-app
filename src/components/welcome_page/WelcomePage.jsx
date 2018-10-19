@@ -1,11 +1,32 @@
 import Logo from "./logo.png";
 import React, { Component } from "react";
 import "./welcome_page.css";
+import firebase from "../../firebase.js";
 
 class WelcomePage extends React.Component {
-  navigate() {
-    this.props.history.push("/navbar");
+  constructor() {
+    super();
+    this.navigate.bind(this);
   }
+  navigate = () => {
+    console.log("navigate");
+    this.props.history.push("/navbar");
+  };
+
+  signin = (email, password) => {
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(function() {
+        console.log(this.props.history);
+        this.props.history.push("/navbar");
+      })
+      .catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+      });
+  };
   render() {
     return (
       <div className="wrapper">
@@ -40,7 +61,9 @@ class WelcomePage extends React.Component {
               />
 
               <button
-                onClick={this.navigate.bind(this)}
+                onClick={() => {
+                  this.signin("test@gmail.com", "testtest");
+                }}
                 className="btn"
                 id="btn"
                 type="button"
