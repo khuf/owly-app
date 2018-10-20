@@ -1,14 +1,20 @@
-import { db } from "./firebase";
+import { db, auth } from "./firebase";
 
 // User API
 
 export const doCreateUser = (id, username, email) =>
-  db.ref(`users/${id}`).set({
-    username,
-    email
-  });
+  db
+    .collection("users")
+    .doc(id)
+    .set({
+      username,
+      email,
+      courses: []
+    });
 
 export const onceGetUsers = () => db.ref("users").once("value");
+
+export const onceGetMyCourses = uid => db.collection("users").doc(uid);
 
 export const onceGetCourses = () => db.collection("courses").get();
 

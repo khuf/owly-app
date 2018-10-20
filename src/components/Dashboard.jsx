@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Navbar from "./Navbar";
 import withAuthorization from "./withAuthorization";
 import { db } from "../firebase";
+import { auth } from "../firebase";
 import Card from "./card_template/card";
 import "../assets/css/welcome_page.css";
 
@@ -12,7 +13,8 @@ class Dashboard extends Component {
     super(props);
 
     this.state = {
-      courses: []
+      courses: [],
+      email: []
     };
   }
 
@@ -23,6 +25,12 @@ class Dashboard extends Component {
         this.setState({ courses: [...this.state.courses, p.data()] });
       })
     );
+
+    const uid = auth.getCurrentUserId();
+
+    console.log(db.onceGetCourses(uid).then(p => p.email));
+
+    //console.log(doc.id, " => ", doc.data());
   }
 
   render() {

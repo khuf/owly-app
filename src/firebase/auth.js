@@ -15,6 +15,8 @@ export const doSignOut = () => auth.signOut();
 // Password Reset
 export const doPasswordReset = email => auth.sendPasswordResetEmail(email);
 
-// Password Change
+export const getCurrentUserId = () => auth.currentUser.uid;
+
+// Password Change. Again, auth knows whether its authenticated through a user. See currentUser.
 export const doPasswordUpdate = password =>
   auth.currentUser.updatePassword(password);
