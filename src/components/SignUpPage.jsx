@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Logo from "../assets/images/logo.png";
 import "../assets/css/welcome_page.css";
 import { auth } from "../firebase";
+import { Link, withRouter } from "react-router-dom";
+import * as routes from "../constants/routes";
 
 const INITIAL_STATE = {
   username: "",
@@ -37,10 +39,14 @@ class SignUpPage extends Component {
     //med verdien som tilsvarer de som finnes i this.state for username, email og passwordOne.
     const { username, email, passwordOne } = this.state;
 
+    //this.props.history, fordi alle komponenter som eksporteres med withRouter() får props fra router.
+    const { history } = this.props;
+
     auth
       .doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
         this.setState({ ...INITIAL_STATE });
+        history.push(routes.HOME);
       })
       .catch(error => {
         this.setState(byPropKey("error", error));
@@ -136,4 +142,4 @@ class SignUpPage extends Component {
   }
 }
 
-export default SignUpPage;
+export default withRouter(SignUpPage);

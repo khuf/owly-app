@@ -11,40 +11,21 @@ import AccountPage from "./AccountPage";
 import SignUpPage from "./SignUpPage";
 import HomePage from "./Home";
 import * as routes from "../constants/routes";
+import { firebase } from "../firebase";
+import withAuthentication from "./withAuthentication";
 
-class App extends Component {
-  cardProps = {
-    courseCode: "INFO262",
-    courseTitle: "SYSTEMUTVIKLING"
-  };
+const App = () => (
+  <BrowserRouter>
+    <div>
+      <hr />
 
-  render() {
-    return (
-      <BrowserRouter>
-        <Switch>
-          <Route path="/" component={WelcomePage} exact />
-          <Route path={routes.HOME} component={HomePage} />
-          <Route
-            path="/card"
-            render={cardProps => (
-              <Card
-                {...cardProps}
-                courseCode={this.cardProps.courseCode}
-                courseName={this.cardProps.courseTitle}
-              />
-            )}
-          />
-          <Route path="/add" component={AddBooksPage} />
-          <Route path="/acc" component={Navbar} />
-          <Route path={routes.SIGN_UP} component={SignUpPage} />
-        </Switch>
-      </BrowserRouter>
-    );
-  }
-}
+      <Route exact path={routes.LANDING} component={WelcomePage} />
+      <Route exact path={routes.SIGN_UP} component={SignUpPage} />
+      <Route exact path={routes.SIGN_IN} component={WelcomePage} />
+      <Route exact path={routes.HOME} component={Navbar} />
+      <Route exact path={routes.ACCOUNT} component={AccountPage} />
+    </div>
+  </BrowserRouter>
+);
 
-const CourseCard = props => {
-  return <Card courseCode={props.courseCode} courseTitle={props.courseTitle} />;
-};
-
-export default App;
+export default withAuthentication(App);

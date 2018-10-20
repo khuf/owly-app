@@ -13,7 +13,7 @@ class SearchBar extends Component {
         type="search"
         className="form-control form-control-lg form-control-borderless"
         placeholder="Search for courses"
-        autofocus={this.props.autofocus}
+        autoFocus={this.props.autofocus}
       />
     );
   }

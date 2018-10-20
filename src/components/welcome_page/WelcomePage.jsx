@@ -5,12 +5,6 @@ import { withRouter } from "react-router-dom";
 import { auth } from "../../firebase";
 import * as routes from "../../constants/routes";
 
-const SignInPage = ({ history }) => (
-  <div>
-    <h1>SignIn</h1>
-  </div>
-);
-
 const byPropKey = (propertyName, value) => () => ({
   [propertyName]: value
 });
@@ -22,18 +16,11 @@ const INITIAL_STATE = {
 };
 
 class WelcomePage extends React.Component {
-  state = {
-    isLoggedIn: false
-  };
+  constructor(props) {
+    super(props);
 
-  constructor() {
-    super();
-    this.navigate.bind(this);
+    this.state = { ...INITIAL_STATE };
   }
-  navigate = () => {
-    console.log("navigate");
-    this.props.history.push("/navbar");
-  };
 
   onSubmit = event => {
     const { email, password } = this.state;
@@ -117,4 +104,4 @@ class WelcomePage extends React.Component {
   }
 }
 
-export default WelcomePage;
+export default withRouter(WelcomePage);

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { auth } from "../firebase";
 
 class AccountDropdown extends Component {
   constructor() {
@@ -28,7 +29,9 @@ class AccountDropdown extends Component {
           <ul className="progress-dropdown-content">
             <li className="#"> Profil </li>
             <li className="#"> Dashbord </li>
-            <li className="#"> Logg ut </li>
+            <li className="#" onClick={auth.doSignOut}>
+              Logg ut
+            </li>
           </ul>
         ) : null}
       </div>
