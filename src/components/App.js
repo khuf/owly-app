@@ -13,16 +13,15 @@ import HomePage from "./Home";
 import * as routes from "../constants/routes";
 import { firebase } from "../firebase";
 import withAuthentication from "./withAuthentication";
+import Dashboard from "./Dashboard";
 
 const App = () => (
   <BrowserRouter>
     <div>
-      <hr />
-
       <Route exact path={routes.LANDING} component={WelcomePage} />
       <Route exact path={routes.SIGN_UP} component={SignUpPage} />
       <Route exact path={routes.SIGN_IN} component={WelcomePage} />
-      <Route exact path={routes.HOME} component={Navbar} />
+      <Route exact path={routes.HOME} component={Dashboard} />
       <Route exact path={routes.ACCOUNT} component={AccountPage} />
     </div>
   </BrowserRouter>

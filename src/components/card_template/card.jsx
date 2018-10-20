@@ -18,8 +18,8 @@ class Card extends Component {
           <div className="card">
             <div className="card__face card__face--front">
               <div className="titleLayer">
-                <h1 className="title">{this.props.courseCode}</h1>
-                <h5 className="subTitle">{this.props.courseName}</h5>
+                <h6 className="title">{this.props.courseCode}</h6>
+                <h6 className="subTitle">{this.props.courseName}</h6>
               </div>
             </div>
             <div className="card__face card__face--back" />

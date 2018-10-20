@@ -8,12 +8,13 @@ import ProgressButton from "./ProgressButton";
 import { auth } from "firebase";
 import AuthUserContext from "./AuthUserContext";
 import withAuthorization from "./withAuthorization";
+import { db } from "../firebase";
 
 class Navbar extends Component {
   constructor(props) {
     super(props);
-    console.log(props.authUser);
   }
+
   render() {
     return (
       <nav className="navbar bg-dark justify-content-around">
@@ -27,6 +28,4 @@ class Navbar extends Component {
   }
 }
 
-const authCondition = authUser => !!authUser;
-
-export default withAuthorization(authCondition)(Navbar);
+export default Navbar;
