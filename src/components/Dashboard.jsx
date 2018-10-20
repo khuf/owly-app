@@ -47,9 +47,10 @@ class Dashboard extends Component {
 
 const CourseList = ({ myCourses }) => (
   <div>
-    <h2>List of courses</h2>
+    <h2>My courses</h2>
+    <hr />
 
-    <div class="d-flex flex-row justify-content-around">
+    <div class="d-flex flex-wrap justify-content-between">
       {Object.keys(myCourses).map(key => (
         <Card
           key={key}
