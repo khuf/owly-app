@@ -13,48 +13,48 @@ class Dashboard extends Component {
     super(props);
 
     this.state = {
-      courses: [],
-      email: []
+      myCourses: []
     };
   }
 
   componentDidMount() {
-    db.onceGetCourses().then(snapshot =>
-      snapshot.forEach(p => {
-        console.log(p.data());
-        this.setState({ courses: [...this.state.courses, p.data()] });
-      })
-    );
-
     const uid = auth.getCurrentUserId();
 
-    console.log(db.onceGetCourses(uid).then(p => p.email));
-
-    //console.log(doc.id, " => ", doc.data());
+    db.getMyCourses(uid).then(snapshot => {
+      snapshot.data().courses.forEach(e => {
+        e.get().then(p => {
+          this.setState({
+            myCourses: [...this.state.myCourses, p.data()]
+          });
+        });
+      });
+    });
   }
 
   render() {
-    const { courses } = this.state;
+    const { myCourses } = this.state;
 
     return (
       <div>
         <Navbar />
-        <div id="wrapper">{!!courses && <CourseList courses={courses} />}</div>
+        <div id="wrapper">
+          {!!myCourses && <CourseList myCourses={myCourses} />}
+        </div>
       </div>
     );
   }
 }
 
-const CourseList = ({ courses }) => (
+const CourseList = ({ myCourses }) => (
   <div>
     <h2>List of courses</h2>
 
     <div class="d-flex flex-row justify-content-around">
-      {Object.keys(courses).map(key => (
+      {Object.keys(myCourses).map(key => (
         <Card
           key={key}
-          courseCode={courses[key].courseCode}
-          courseName={courses[key].courseName}
+          courseCode={myCourses[key].courseCode}
+          courseName={myCourses[key].courseName}
         />
       ))}
     </div>
