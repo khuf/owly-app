@@ -82,4 +82,5 @@ img {
   width: 960px;
   height: auto;
   margin: 0 auto;
+  justify-content: space-evenly;
 }

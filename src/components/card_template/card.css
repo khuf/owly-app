@@ -21,8 +21,8 @@ Endringer fra tidligere vesjon
   align-self: center;
 }
 
+/**Removed width: 100%*/
 .card {
-  width: 100%;
   height: 100%;
   transition: transform 1s;
   transform-style: preserve-3d;

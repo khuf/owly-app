@@ -13,7 +13,8 @@ class Card extends Component {
   }
   render() {
     return (
-      <div className="container">
+      //Removed className=".container" from the div below. Was in conflict with bootstraps .container.
+      <div>
         <div onClick={flip} className="scene scene--card">
           <div className="card">
             <div className="card__face card__face--front">

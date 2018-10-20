@@ -41,7 +41,7 @@ const CourseList = ({ courses }) => (
   <div>
     <h2>List of courses</h2>
 
-    <div class="d-flex flex-row">
+    <div class="d-flex flex-row justify-content-around">
       {Object.keys(courses).map(key => (
         <Card
           key={key}
