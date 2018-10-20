@@ -12,40 +12,41 @@ class Dashboard extends Component {
     super(props);
 
     this.state = {
-      books: []
+      courses: []
     };
   }
 
   componentDidMount() {
     db.onceGetCourses().then(snapshot =>
       snapshot.forEach(p => {
-        this.setState({ books: [...this.state.books, p.data()] });
+        console.log(p.data());
+        this.setState({ courses: [...this.state.courses, p.data()] });
       })
     );
   }
 
   render() {
-    const { books } = this.state;
+    const { courses } = this.state;
 
     return (
       <div>
         <Navbar />
-        <div id="wrapper">{!!books && <BookList books={books} />}</div>
+        <div id="wrapper">{!!courses && <CourseList courses={courses} />}</div>
       </div>
     );
   }
 }
 
-const BookList = ({ books }) => (
+const CourseList = ({ courses }) => (
   <div>
-    <h2>List of books</h2>
+    <h2>List of courses</h2>
 
     <div class="d-flex flex-row">
-      {Object.keys(books).map(key => (
+      {Object.keys(courses).map(key => (
         <Card
           key={key}
-          courseCode={books[key].title}
-          courseName={books[key].title}
+          courseCode={courses[key].courseCode}
+          courseName={courses[key].courseName}
         />
       ))}
     </div>

@@ -10,11 +10,6 @@ export const doCreateUser = (id, username, email) =>
 
 export const onceGetUsers = () => db.ref("users").once("value");
 
-export const onceGetCourses = () =>
-  db
-    .collection("courses")
-    .doc("INFO212")
-    .collection("books")
-    .get();
+export const onceGetCourses = () => db.collection("courses").get();
 
 // Other Entity APIs ...
