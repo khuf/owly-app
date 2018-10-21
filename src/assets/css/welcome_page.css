@@ -8,12 +8,12 @@ h1 {
 
 img {
   max-width: 500px;
-  max-height: 500px;
+  max-height: 250px;
   align-self: center;
   justify-self: center;
 }
 
-.wrapper {
+.full-width-container {
   background-image: url("../../assets/images/frontpage_bck.png");
   background-size: cover;
   width: 100%;
@@ -21,8 +21,13 @@ img {
   position: fixed;
 }
 
+.wrapper {
+  width: 960px;
+  height: auto;
+  margin: 0 auto;
+}
+
 .logo_area {
-  height: 400px;
   display: grid;
   grid-template-columns: 1;
 }

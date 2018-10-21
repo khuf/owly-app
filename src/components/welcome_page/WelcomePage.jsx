@@ -1,4 +1,4 @@
-import Logo from "../../assets/images/logo.png";
+import Logo from "../../assets/images/logo.svg";
 import React, { Component } from "react";
 import "../../assets/css/welcome_page.css";
 import { withRouter } from "react-router-dom";
@@ -46,58 +46,60 @@ class WelcomePage extends React.Component {
     const isInvalid = password === "" || email === "";
 
     return (
-      <div className="wrapper">
-        <div className="logo_area">
-          <img src={Logo} alt="logo" />
-          <h1 className="text-white">
-            WELCOME TO
-            <span className="owly-text"> OWLY</span>
-            <br />
-            <h3>Your personal study companion</h3>
-          </h1>
-        </div>
+      <div className="full-width-container">
+        <div className="wrapper d-flex flex-column justify-content-center">
+          <div className="logo_area">
+            <img src={Logo} alt="logo" />
+            <h1 className="text-white">
+              WELCOME TO
+              <span className="owly-text"> OWLY</span>
+              <br />
+              <h3>Your personal study companion</h3>
+            </h1>
+          </div>
 
-        <div align="center">
-          <form className="loginForm" onSubmit={this.onSubmit}>
-            <input
-              value={email}
-              onChange={event =>
-                this.setState(byPropKey("email", event.target.value))
-              }
-              className="form-control form-control-lg form-control-borderless"
-              placeholder="Enter e-mail"
-              autoFocus
-            />
-
-            <input
-              value={password}
-              type="password"
-              onChange={event =>
-                this.setState(byPropKey("password", event.target.value))
-              }
-              className="form-control form-control-lg form-control-borderless"
-              placeholder="Enter password"
-            />
-
-            {error && <p className="text-white">{error.message}</p>}
-
-            <div className="form-controls-inline" align="center">
+          <div align="center">
+            <form className="loginForm" onSubmit={this.onSubmit}>
               <input
-                type="search"
+                value={email}
+                onChange={event =>
+                  this.setState(byPropKey("email", event.target.value))
+                }
                 className="form-control form-control-lg form-control-borderless"
-                placeholder="Search for courses"
+                placeholder="Enter e-mail"
+                autoFocus
               />
 
-              <button
-                disabled={isInvalid}
-                className="btn"
-                id="btn"
-                type="submit"
-              >
-                LOGIN/REGISTER
-              </button>
-            </div>
-          </form>
+              <input
+                value={password}
+                type="password"
+                onChange={event =>
+                  this.setState(byPropKey("password", event.target.value))
+                }
+                className="form-control form-control-lg form-control-borderless"
+                placeholder="Enter password"
+              />
+
+              {error && <p className="text-white">{error.message}</p>}
+
+              <div className="form-controls-inline" align="center">
+                <input
+                  type="search"
+                  className="form-control form-control-lg form-control-borderless"
+                  placeholder="Search for courses"
+                />
+
+                <button
+                  disabled={isInvalid}
+                  className="btn"
+                  id="btn"
+                  type="submit"
+                >
+                  LOGIN/REGISTER
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     );
