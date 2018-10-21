@@ -43,7 +43,7 @@ class Dashboard extends Component {
     return (
       <div>
         <Navbar user={this.state.displayName} />
-        <div id="wrapper">
+        <div className="container material-box">
           {!!myCourses && <CourseList myCourses={myCourses} />}
         </div>
       </div>
@@ -52,11 +52,11 @@ class Dashboard extends Component {
 }
 
 const CourseList = ({ myCourses }) => (
-  <div>
+  <div className="col-lg-">
     <h2>My courses</h2>
     <hr />
 
-    <div class="d-flex flex-wrap justify-content-between">
+    <div class="d-flex flex-wrap justify-content-lg-start justify-content-sm-center">
       {Object.keys(myCourses).map(key => (
         <Card
           key={key}

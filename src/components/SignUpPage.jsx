@@ -77,8 +77,8 @@ class SignUpPage extends Component {
       email === "" ||
       passwordOne !== passwordTwo;
     return (
-      <div className="full-width-container">
-        <div className="wrapper d-flex flex-column justify-content-center">
+      <div className="container-fluid bg">
+        <div className="col-lg-">
           <div className="logo_area">
             <img src={Logo} alt="logo" />
             <h1 className="text-white">Signup</h1>

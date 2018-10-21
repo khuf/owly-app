@@ -15,7 +15,7 @@ Endringer fra tidligere vesjon
 .scene {
   width: 200px;
   height: 260px;
-  margin: 40px 0;
+  margin: 40px 0 0 1rem;
   perspective: 600px;
   justify-self: center;
   align-self: center;
