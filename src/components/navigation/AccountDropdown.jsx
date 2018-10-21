@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { auth } from "../firebase";
+import { auth } from "../../firebase";
 
 class AccountDropdown extends Component {
   constructor() {
@@ -23,7 +23,7 @@ class AccountDropdown extends Component {
   render() {
     return (
       <div onClick={this.showMenu} className="progress-btndrop">
-        <button className="btn">Jacob</button>
+        <button className="btn">{this.props.user}</button>
 
         {this.state.showMenu ? (
           <ul className="progress-dropdown-content">

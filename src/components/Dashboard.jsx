@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Navbar from "./Navbar";
+import { Navbar } from "./navigation/";
 import withAuthorization from "./withAuthorization";
 import { db } from "../firebase";
 import { auth } from "../firebase";
@@ -13,7 +13,8 @@ class Dashboard extends Component {
     super(props);
 
     this.state = {
-      myCourses: []
+      myCourses: [],
+      displayName: ""
     };
   }
 
@@ -29,6 +30,11 @@ class Dashboard extends Component {
         });
       });
     });
+
+    //this.setState({ displayName: auth.getCurrentUser() });
+    //console.log("User: " + auth.getCurrentUser());
+
+    this.setState({ displayName: auth.getCurrentUser() });
   }
 
   render() {
@@ -36,7 +42,7 @@ class Dashboard extends Component {
 
     return (
       <div>
-        <Navbar />
+        <Navbar user={this.state.displayName} />
         <div id="wrapper">
           {!!myCourses && <CourseList myCourses={myCourses} />}
         </div>
