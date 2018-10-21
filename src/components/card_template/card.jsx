@@ -2,11 +2,6 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./card.css";
 
-/*const flip = function() {
-  var card = document.querySelector(".card");
-  card.classList.toggle("is-flipped");
-};*/
-
 class Card extends Component {
   constructor(props) {
     super(props);
@@ -19,13 +14,11 @@ class Card extends Component {
   }
   render() {
     return (
-      //Removed className=".container" from the div below. Was in conflict with bootstraps .container.
       <div>
         <div className="scene scene--card">
           <div
             className={this.state.isFlipped ? "card is-flipped" : "card"}
-            onClick={event => {
-              event.preventDefault();
+            onClick={() => {
               let newState = this.state.isFlipped ? false : true;
               this.setState({ isFlipped: newState });
             }}

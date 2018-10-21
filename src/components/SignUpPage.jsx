@@ -46,6 +46,7 @@ class SignUpPage extends Component {
     auth
       .doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
+        auth.doUpdateProfileWithDisplayName(username);
         db.doCreateUser(authUser.user.uid, username, email)
           .then(() => {
             this.setState({ ...INITIAL_STATE });

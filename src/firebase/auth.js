@@ -8,6 +8,9 @@ export const doCreateUserWithEmailAndPassword = (email, password) =>
 export const doSignInWithEmailAndPassword = (email, password) =>
   auth.signInWithEmailAndPassword(email, password);
 
+export const doUpdateProfileWithDisplayName = displayName =>
+  auth.currentUser.updateProfile({ displayName: displayName });
+
 // Sign out. No need to supplement any argument to it. Because the auth object already knows about
 // any authenticated user associated with it.
 export const doSignOut = () => auth.signOut();
