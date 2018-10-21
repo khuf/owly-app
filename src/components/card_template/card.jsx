@@ -9,7 +9,12 @@ const flip = function() {
 
 class Card extends Component {
   constructor(props) {
-    super();
+    super(props);
+    this.state = {
+      cardImg: {
+        backgroundImage: `url(${this.props.img})`
+      }
+    };
   }
   render() {
     return (
@@ -17,7 +22,10 @@ class Card extends Component {
       <div>
         <div onClick={flip} className="scene scene--card">
           <div className="card">
-            <div className="card__face card__face--front">
+            <div
+              className="card__face card__face--front"
+              style={this.state.cardImg}
+            >
               <div className="titleLayer">
                 <h6 className="title">{this.props.courseCode}</h6>
                 <h6 className="subTitle">{this.props.courseName}</h6>

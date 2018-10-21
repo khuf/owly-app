@@ -62,6 +62,7 @@ const CourseList = ({ myCourses }) => (
           key={key}
           courseCode={myCourses[key].courseCode}
           courseName={myCourses[key].courseName}
+          img={myCourses[key].image}
         />
       ))}
     </div>
