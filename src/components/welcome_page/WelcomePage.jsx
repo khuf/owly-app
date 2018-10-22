@@ -4,6 +4,7 @@ import "../../assets/css/welcome_page.css";
 import { withRouter } from "react-router-dom";
 import { auth } from "../../firebase";
 import * as routes from "../../constants/routes";
+import { PasswordForgetForm } from "../PasswordForget";
 
 const byPropKey = (propertyName, value) => () => ({
   [propertyName]: value
@@ -12,8 +13,11 @@ const byPropKey = (propertyName, value) => () => ({
 const INITIAL_STATE = {
   email: "",
   password: "",
-  error: null
+  error: null,
+  showModal: false
 };
+
+const modal = () => <PasswordForgetForm showModal={true} />;
 
 class WelcomePage extends React.Component {
   constructor(props) {
@@ -21,6 +25,13 @@ class WelcomePage extends React.Component {
 
     this.state = { ...INITIAL_STATE };
   }
+
+  toggle = () => {
+    this.setState({
+      showModal: !this.state.showModal
+    });
+    console.log(this.state.showModal);
+  };
 
   onSubmit = event => {
     const { email, password } = this.state;
@@ -80,6 +91,10 @@ class WelcomePage extends React.Component {
                 placeholder="Enter password"
               />
 
+              <a className="d-block text-white" onClick={this.toggle}>
+                Lost password?
+              </a>
+
               {error && <p className="text-white">{error.message}</p>}
 
               <div className="form-controls-inline" align="center">
@@ -100,6 +115,9 @@ class WelcomePage extends React.Component {
               </div>
             </form>
           </div>
+          {this.state.showModal ? (
+            <PasswordForgetForm showModal={this.state.showModal} />
+          ) : null}
         </div>
       </div>
     );

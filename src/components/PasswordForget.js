@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { auth } from "../firebase/firebase";
+import { auth } from "../firebase/";
 import * as routes from "../constants/routes";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 const PasswordForgetPage = () => (
   <div>
@@ -16,17 +17,24 @@ const byPropKey = (propertyName, value) => () => ({
 
 const INITIAL_STATE = {
   email: "",
-  error: null
+  errorForget: null,
+  modal: false
 };
 
 class PasswordForgetForm extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { ...INITIAL_STATE };
+    this.state = { ...INITIAL_STATE, modal: props.showModal };
   }
 
-  onSubmit = event => {
+  toggle = () => {
+    this.setState({
+      modal: !this.state.modal
+    });
+  };
+
+  sumbitResetPassword = event => {
     const { email } = this.state;
 
     auth
@@ -34,34 +42,64 @@ class PasswordForgetForm extends Component {
       .then(() => {
         this.setState({ ...INITIAL_STATE });
       })
-      .catch(error => {
-        this.setState(byPropKey("error", error));
+      .catch(errorForget => {
+        this.setState(byPropKey("errorForget", errorForget));
       });
 
     event.preventDefault();
   };
 
   render() {
-    const { email, error } = this.state;
+    const { email, errorForget } = this.state;
 
     const isInvalid = email === "";
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
-          value={this.state.email}
-          onChange={event =>
-            this.setState(byPropKey("email", event.target.value))
-          }
-          type="text"
-          placeholder="Email Address"
-        />
-        <button disabled={isInvalid} type="submit">
-          Reset My Password
-        </button>
-
-        {error && <p>{error.message}</p>}
-      </form>
+      <React.Fragment>
+        <Modal
+          isOpen={this.state.modal}
+          toggle={this.toggle}
+          className={this.props.className}
+        >
+          <ModalHeader toggle={this.toggle}>Reset password</ModalHeader>
+          <ModalBody>
+            {errorForget && <p className="d-block">{errorForget.message}</p>}
+            <form
+              className="form-inline"
+              name="passwordForget"
+              onSubmit={this.sumbitResetPassword}
+            >
+              <div className="form-group">
+                <input
+                  className="form-control"
+                  value={this.state.email}
+                  onChange={event =>
+                    this.setState(byPropKey("email", event.target.value))
+                  }
+                  type="text"
+                  placeholder="Email Address"
+                />
+                <button
+                  className="form-control ml-2"
+                  disabled={isInvalid}
+                  type="submit"
+                >
+                  Reset My Password
+                </button>
+              </div>
+            </form>
+          </ModalBody>
+          <ModalFooter>
+            <button className="form-control" onClick={this.toggle}>
+              Reset my password
+            </button>{" "}
+            {/*Provide color="primary" to make the button have the classes btn btn-primary */}
+            <button className="form-control" onClick={this.toggle}>
+              Cancel
+            </button>
+          </ModalFooter>
+        </Modal>
+      </React.Fragment>
     );
   }
 }

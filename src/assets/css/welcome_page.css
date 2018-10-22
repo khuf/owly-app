@@ -72,7 +72,8 @@ img {
   text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
 }
 
-.loginForm input {
+.loginForm input,
+a {
   width: 40%;
   margin-bottom: 1rem;
 }
