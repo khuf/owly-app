@@ -30,7 +30,6 @@ class WelcomePage extends React.Component {
     this.setState({
       showModal: !this.state.showModal
     });
-    console.log(this.state.showModal);
   };
 
   onSubmit = event => {
@@ -116,7 +115,10 @@ class WelcomePage extends React.Component {
             </form>
           </div>
           {this.state.showModal ? (
-            <PasswordForgetForm showModal={this.state.showModal} />
+            <PasswordForgetForm
+              showModal={this.state.showModal}
+              toggle={this.toggle.bind(this)}
+            />
           ) : null}
         </div>
       </div>

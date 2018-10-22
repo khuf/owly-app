@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { auth } from "../firebase/";
 import * as routes from "../constants/routes";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import MessageBox from "./MessageBox";
 
 const PasswordForgetPage = () => (
   <div>
@@ -27,12 +28,6 @@ class PasswordForgetForm extends Component {
 
     this.state = { ...INITIAL_STATE, modal: props.showModal };
   }
-
-  toggle = () => {
-    this.setState({
-      modal: !this.state.modal
-    });
-  };
 
   sumbitResetPassword = event => {
     const { email } = this.state;
@@ -61,7 +56,7 @@ class PasswordForgetForm extends Component {
           toggle={this.toggle}
           className={this.props.className}
         >
-          <ModalHeader toggle={this.toggle}>Reset password</ModalHeader>
+          <ModalHeader toggle={this.props.toggle}>Reset password</ModalHeader>
           <ModalBody>
             {errorForget && <p className="d-block">{errorForget.message}</p>}
             <form
@@ -90,11 +85,8 @@ class PasswordForgetForm extends Component {
             </form>
           </ModalBody>
           <ModalFooter>
-            <button className="form-control" onClick={this.toggle}>
-              Reset my password
-            </button>{" "}
             {/*Provide color="primary" to make the button have the classes btn btn-primary */}
-            <button className="form-control" onClick={this.toggle}>
+            <button className="form-control" onClick={this.props.toggle}>
               Cancel
             </button>
           </ModalFooter>
