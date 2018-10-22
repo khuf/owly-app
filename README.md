@@ -50,8 +50,8 @@ The app uses Google Firestore as a backend to store and retrieve data. The datab
 ## Authors
 
 * **Knut Hufthammer** - [khuf](https://github.com/khuf)
-* **David René Bødtker** [carknabragha] (https://github.com/carknabragha)
-* **Jonas Meyer Birkeli** [https://github.com/JonasMBirk] (https://github.com/JonasMBirk) 
-* **Gabriel Matei** [Gma001] (https://github.com/Gma001)
+* **David René Bødtker** - [carknabragha](https://github.com/carknabragha)
+* **Jonas Meyer Birkeli** - [JonasMBirk](https://github.com/JonasMBirk) 
+* **Gabriel Matei** - [Gma001](https://github.com/Gma001)
 
 ## License
