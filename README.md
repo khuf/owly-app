@@ -1,6 +1,6 @@
 # Owly
 
-Owly is an app to assist you with your studies.
+Owly is an app to assist you with your studies. Tracks progress in the courses you are taking.
 
 ## Getting Started
 
@@ -46,10 +46,10 @@ The app uses Google Firestore as a backend to store and retrieve data. The datab
 
 * [React](https://reactjs.org/docs/getting-started.html) - The web framework used
 * [Firebase](https://firebase.google.com/docs/) - Data management
-* [Bootstrap] (https://getbootstrap.com/docs/4.1/getting-started/contents/) - For CSS styling
+* [Bootstrap](https://getbootstrap.com/docs/4.1/getting-started/contents/) - For CSS styling
 ## Authors
 
-* **Billie Thompson** - [khuf](https://github.com/khuf)
+* **Knut Hufthammer** - [khuf](https://github.com/khuf)
 * **David René Bødtker** [carknabragha] (https://github.com/carknabragha)
 * **Jonas Meyer Birkeli** [https://github.com/JonasMBirk] (https://github.com/JonasMBirk) 
 * **Gabriel Matei** [Gma001] (https://github.com/Gma001)
