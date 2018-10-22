@@ -34,56 +34,24 @@ You should now be presented with the sign in page.
 
 ![alt text](https://github.com/khuf/owly-app/blob/master/docs/images/signin_preview.jpg)
 
-## Running the tests
+## Tests
 
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+As of now, there are now tests available. 
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+The app uses Google Firestore as a backend to store and retrieve data. The database is currently setup in development and R/W rules needs to be changed before deployment. 
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
+* [React](https://reactjs.org/docs/getting-started.html) - The web framework used
+* [Firebase](https://firebase.google.com/docs/) - Data management
+* [Bootstrap] (https://getbootstrap.com/docs/4.1/getting-started/contents/) - For CSS styling
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Billie Thompson** - [khuf](https://github.com/khuf)
+* **David René Bødtker** [carknabragha] (https://github.com/carknabragha)
+* **Jonas Meyer Birkeli** [https://github.com/JonasMBirk] (https://github.com/JonasMBirk) 
+* **Gabriel Matei** [Gma001] (https://github.com/Gma001)
 
 ## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
