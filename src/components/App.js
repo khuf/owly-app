@@ -18,6 +18,7 @@ const App = () => (
       <Route exact path={routes.SIGN_IN} component={WelcomePage} />
       <Route exact path={routes.HOME} component={Dashboard} />
       <Route exact path={routes.ACCOUNT} component={AccountPage} />
+      <Route exact path={routes.PROGRESS} component={AccountPage} />
     </div>
   </BrowserRouter>
 );
