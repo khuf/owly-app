@@ -2,7 +2,11 @@ import React, { Component } from "react";
 
 class PorgressButton extends Component {
   render() {
-    return <button className="btn">Progress</button>;
+    return (
+      <button className="btn" onClick={this.getItems}>
+        Progress
+      </button>
+    );
   }
 }
 

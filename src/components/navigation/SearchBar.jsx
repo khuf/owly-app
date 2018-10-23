@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../components/SearchBar.css";
+import "../../assets/css/searchBar.css";
 
 class SearchBar extends Component {
   state = {};
@@ -13,7 +13,7 @@ class SearchBar extends Component {
         type="search"
         className="form-control form-control-lg form-control-borderless"
         placeholder="Search for courses"
-        autofocus={this.props.autofocus}
+        autoFocus={true}
       />
     );
   }

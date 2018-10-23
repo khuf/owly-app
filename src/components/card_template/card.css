@@ -2,13 +2,11 @@ body {
   background-image: url("texture.jpg");
 }
 
+/**
+Endringer fra tidligere vesjon
+- Fjernet position, bottom, left, right, bottom, og flex attributt. 
+**/
 .container {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
   justify-content: center;
   align-content: center;
   background-color: none;
@@ -17,14 +15,14 @@ body {
 .scene {
   width: 200px;
   height: 260px;
-  margin: 40px 0;
+  margin: 40px 0 0 1rem;
   perspective: 600px;
   justify-self: center;
   align-self: center;
 }
 
+/**Removed width: 100%*/
 .card {
-  width: 100%;
   height: 100%;
   transition: transform 1s;
   transform-style: preserve-3d;

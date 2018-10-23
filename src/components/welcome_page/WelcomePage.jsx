@@ -1,58 +1,129 @@
-import Logo from "./logo.png";
+import Logo from "../../assets/images/logo.svg";
 import React, { Component } from "react";
-import "./welcome_page.css";
+import "../../assets/css/welcome_page.css";
+import { withRouter } from "react-router-dom";
+import { auth } from "../../firebase";
+import * as routes from "../../constants/routes";
+import { PasswordForgetForm } from "../PasswordForget";
+
+const byPropKey = (propertyName, value) => () => ({
+  [propertyName]: value
+});
+
+const INITIAL_STATE = {
+  email: "",
+  password: "",
+  error: null,
+  showModal: false
+};
+
+const modal = () => <PasswordForgetForm showModal={true} />;
 
 class WelcomePage extends React.Component {
-  navigate() {
-    this.props.history.push("/navbar");
+  constructor(props) {
+    super(props);
+
+    this.state = { ...INITIAL_STATE };
   }
+
+  toggle = () => {
+    this.setState({
+      showModal: !this.state.showModal
+    });
+  };
+
+  onSubmit = event => {
+    const { email, password } = this.state;
+
+    const { history } = this.props;
+
+    auth
+      .doSignInWithEmailAndPassword(email, password)
+      .then(() => {
+        this.setState({ ...INITIAL_STATE });
+        history.push(routes.HOME);
+      })
+      .catch(error => {
+        this.setState(byPropKey("error", error));
+      });
+
+    event.preventDefault();
+  };
+
   render() {
+    const { email, password, error } = this.state;
+
+    const isInvalid = password === "" || email === "";
+
     return (
-      <div className="wrapper">
-        <div className="logo_area">
-          <img src={Logo} alt="logo" />
-          <h1 class="text-white">
-            WELCOME TO
-            <span class="owly-text"> OWLY</span>
-            <br />
-            <h3>Your personal study companion</h3>
-          </h1>
-        </div>
+      <div className="container-fluid bg">
+        <div className="col-lg-">
+          <div className="logo_area">
+            <img src={Logo} alt="logo" />
+            <h1 className="text-white">
+              WELCOME TO
+              <span className="owly-text"> OWLY</span>
+              <br />
+              <h3>Your personal study companion</h3>
+            </h1>
+          </div>
 
-        <div align="center">
-          <form className="loginForm">
-            <input
-              className="form-control form-control-lg form-control-borderless"
-              placeholder="Enter username"
-              autoFocus
-            />
-
-            <input
-              className="form-control form-control-lg form-control-borderless"
-              placeholder="Enter password"
-            />
-
-            <div className="form-controls-inline" align="center">
+          <div align="center">
+            <form className="loginForm" onSubmit={this.onSubmit}>
               <input
-                type="search"
+                value={email}
+                onChange={event =>
+                  this.setState(byPropKey("email", event.target.value))
+                }
                 className="form-control form-control-lg form-control-borderless"
-                placeholder="Search for courses"
+                placeholder="Enter e-mail"
+                autoFocus
               />
 
-              <button
-                onClick={this.navigate.bind(this)}
-                className="btn"
-                id="btn"
-                type="button"
-              >
-                LOGIN/REGISTER
-              </button>
-            </div>
-          </form>
+              <input
+                value={password}
+                type="password"
+                onChange={event =>
+                  this.setState(byPropKey("password", event.target.value))
+                }
+                className="form-control form-control-lg form-control-borderless"
+                placeholder="Enter password"
+              />
+
+              <a className="d-block text-white" onClick={this.toggle}>
+                Lost password?
+              </a>
+
+              {error && <p className="text-white">{error.message}</p>}
+
+              <div className="form-controls-inline" align="center">
+                <input
+                  type="search"
+                  className="form-control form-control-lg form-control-borderless"
+                  placeholder="Search for courses"
+                />
+
+                <button
+                  disabled={isInvalid}
+                  className="btn"
+                  id="btn"
+                  type="submit"
+                >
+                  LOGIN/REGISTER
+                </button>
+              </div>
+            </form>
+          </div>
+          {this.state.showModal ? (
+            <PasswordForgetForm
+              showModal={this.state.showModal}
+              toggle={this.toggle.bind(this)}
+            />
+          ) : null}
         </div>
       </div>
     );
   }
 }
 
-export default WelcomePage;
+export default withRouter(WelcomePage);
