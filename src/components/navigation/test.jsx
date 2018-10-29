@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Motion, spring } from "react-motion";
 
-class FilterButton extends Component {
+class test extends Component {
   constructor() {
     super();
     this.state = {
@@ -25,9 +25,9 @@ class FilterButton extends Component {
           Shortcut
         </button>
         <Motion
-          defaultStyle={{ x: 200, opacity: 0 }}
+          defaultStyle={{ x: -200, opacity: 0 }}
           style={{
-            x: spring(this.state.showMenu ? 0 : 200),
+            x: spring(this.state.showMenu ? 0 : -200),
             opacity: spring(this.state.showMenu ? 1 : 0)
           }}
         >
@@ -50,4 +50,4 @@ class FilterButton extends Component {
   }
 }
 
-export default FilterButton;
+export default test;

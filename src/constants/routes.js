@@ -5,3 +5,7 @@ export const HOME = "/home";
 export const ACCOUNT = "/account";
 export const PASSWORD_FORGET = "/pw-forget";
 export const PROGRESS = "/progress";
+export const CARD_MODAL = "/card-modal";
+export const CARD_TEMPLATE = "/card-template";
+
+export const TEST = "/test";
