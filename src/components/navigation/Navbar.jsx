@@ -14,7 +14,7 @@ class Navbar extends Component {
 
   render() {
     return (
-      <nav className="navbar bg-dark justify-content-around">
+      <nav className="navbar bg-dark ">
         <AccountDropdown user={this.props.user} />
         <SearchBar autofocus="true" />
         <Logo />

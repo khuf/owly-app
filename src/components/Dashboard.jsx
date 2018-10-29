@@ -3,7 +3,7 @@ import { Navbar } from "./navigation/";
 import withAuthorization from "./withAuthorization";
 import { db } from "../firebase";
 import { auth } from "../firebase";
-import Card from "./card_template/card";
+import Card from "./card_template/modalCard";
 import "../assets/css/welcome_page.css";
 
 class Dashboard extends Component {
