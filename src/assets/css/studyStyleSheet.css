@@ -1,0 +1,50 @@
+.studyContainer {
+  background-color: bisque;
+  width: 50%;
+  position: relative;
+  top: 1rem;
+  left: 25%;
+}
+
+.studyCourse {
+  position: relative;
+  border-radius: 1rem;
+  background-color: red;
+  width: 50%;
+  height: 5rem;
+  left: 25%;
+  text-align: center;
+}
+
+.fas {
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease-in-out;
+}
+
+.faster {
+  transform: rotate(180deg);
+}
+
+.collapsible {
+  padding: 1rem;
+}
+
+.finishedContainer {
+  background-color: rgb(155, 138, 118);
+  width: 50%;
+  position: relative;
+  top: 1rem;
+  left: 25%;
+  justify-content: center;
+  align-content: center;
+}
+
+.finishedContent {
+  position: relative;
+  justify-self: center;
+  align-self: center;
+  border-radius: 1rem;
+  background-color: red;
+  width: 50%;
+  height: 3rem;
+}

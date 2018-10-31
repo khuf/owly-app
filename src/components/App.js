@@ -11,6 +11,7 @@ import withAuthentication from "./withAuthentication";
 import Dashboard from "./Dashboard";
 import cardModal from "../components/card_template/cardModal";
 import cardTemplate from "../components/card_template/modalCard";
+import ProgressPage from "../components/Progress_page/progress_page";
 import test from "../components/navigation/test";
 
 const App = () => (
@@ -24,6 +25,7 @@ const App = () => (
       <Route exact path={routes.PROGRESS} component={AccountPage} />
       <Route exact path={routes.CARD_MODAL} component={cardModal} />
       <Route exact path={routes.CARD_TEMPLATE} component={cardTemplate} />
+      <Route exact path={routes.PROGRESS_PAGE} component={ProgressPage} />
       <Route exact path={routes.TEST} component={test} />
     </div>
   </BrowserRouter>
