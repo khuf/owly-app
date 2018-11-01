@@ -3,8 +3,12 @@ import { Navbar } from "./navigation/";
 import withAuthorization from "./withAuthorization";
 import { db } from "../firebase";
 import { auth } from "../firebase";
+<<<<<<< HEAD
 import Card from "./card_template/card";
 import { Alert } from "reactstrap";
+=======
+import Card from "./card_template/modalCard";
+>>>>>>> origin/master
 import "../assets/css/welcome_page.css";
 
 class Dashboard extends Component {

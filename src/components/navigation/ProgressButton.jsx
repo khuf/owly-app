@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../../assets/css/navbar.css";
 
 class PorgressButton extends Component {
   render() {
