@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import DefaultProfilePic from "../assets/images/man.png";
+import DefaultProfilePic from "../assets/images/boy.svg";
 
 class ProfileImage extends Component {
   state = {};
