@@ -24,6 +24,10 @@ export const getCurrentUserId = () => auth.currentUser.uid;
 //User Info
 export const getCurrentUser = () => auth.currentUser.displayName;
 
+export const isEmailConfirmed = () => auth.currentUser.emailVerified;
+
+export const sendVerificationMail = () => auth.sendPasswordResetEmail();
+
 // Password Change. Again, auth knows whether its authenticated through a user. See currentUser.
 export const doPasswordUpdate = password =>
   auth.currentUser.updatePassword(password);

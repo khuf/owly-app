@@ -4,6 +4,7 @@ import withAuthorization from "./withAuthorization";
 import { db } from "../firebase";
 import { auth } from "../firebase";
 import Card from "./card_template/card";
+import { Alert } from "reactstrap";
 import "../assets/css/welcome_page.css";
 
 class Dashboard extends Component {
@@ -44,6 +45,12 @@ class Dashboard extends Component {
       <div>
         <Navbar user={this.state.displayName} />
         <div className="container material-box">
+          {auth.isEmailConfirmed() ? null : (
+            <Alert color="warning">
+              Your e-mail address has not been verified. Please verify it to
+              confirm your account.
+            </Alert>
+          )}
           {!!myCourses && <CourseList myCourses={myCourses} />}
         </div>
       </div>

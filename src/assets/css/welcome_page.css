@@ -85,3 +85,29 @@ a {
   padding: 1rem;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
+
+/*Profile Image*/
+.profile-image-outer-container {
+  border-radius: 50%;
+}
+.profile-image-inner-container {
+  border-radius: 50%;
+  padding: 5px;
+  background: linear-gradient(to right, #ff4081, #304ffe);
+}
+.profile-image-inner-container img {
+  height: 140px;
+  width: 140px;
+  border-radius: 50%;
+}
+.round {
+  width: 3rem;
+  line-height: 3rem;
+  height: 3rem;
+  background-color: red;
+  border-radius: 50%;
+  text-align: center;
+}
+.c-pointer {
+  cursor: pointer;
+}
