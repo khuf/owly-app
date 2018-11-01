@@ -3,7 +3,6 @@ import React from "react";
 import AuthUserContext from "./AuthUserContext";
 import PasswordChangeForm from "./PasswordChange";
 import withAuthorization from "./withAuthorization";
-import bg from "../assets/images/frontpage_bck.png";
 import ProfileImage from "./ProfileImage";
 import CircularBadge from "./CircularBadge";
 

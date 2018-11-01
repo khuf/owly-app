@@ -7,6 +7,9 @@ import {
   AccountDropdown
 } from "./index";
 
+/**
+ * A horizontal navigation bar that stays fixed at the top of the page.
+ */
 class Navbar extends Component {
   constructor(props) {
     super(props);

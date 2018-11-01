@@ -1,10 +1,6 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
-
 import AuthUserContext from "./AuthUserContext";
 import { firebase } from "../firebase";
-import * as routes from "../constants/routes";
-import SignUpPage from "./SignUpPage";
 
 const withAuthentication = Component =>
   class WithAuthentication extends React.Component {

@@ -11,7 +11,8 @@ class Card extends Component {
       cardImg: {
         backgroundImage: `url(${this.props.img})`
       },
-      modal: false
+      modal: false,
+      centered: true
     };
 
     this.toggle = this.toggle.bind(this);
@@ -38,6 +39,7 @@ class Card extends Component {
           isOpen={this.state.modal}
           toggle={this.toggle}
           className={this.props.className}
+          centered={this.state.centered}
         >
           <ModalHeader toggle={this.toggle} close={closeBtn}>
             <a className="headerText">

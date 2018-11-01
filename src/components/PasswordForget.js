@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../firebase/";
 import * as routes from "../constants/routes";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-import MessageBox from "./MessageBox";
+import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 const PasswordForgetPage = () => (
   <div>
