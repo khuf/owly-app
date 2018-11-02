@@ -14,9 +14,9 @@ class Collapsible extends Component {
     this.setState({ collapse: !this.state.collapse });
 
     if (!this.state.collapse) {
-      document.getElementById("o").className = "fas fa-angle-down fa-2x faster";
+      document.getElementById("w").className = "fas fa-angle-down fa-2x faster";
     } else {
-      document.getElementById("o").className = "fas fa-angle-down fa-2x";
+      document.getElementById("w").className = "fas fa-angle-down fa-2x";
     }
   }
 
@@ -24,8 +24,8 @@ class Collapsible extends Component {
     return (
       <div className="finishedContainer">
         <div className="finishedContent" onClick={this.toggle}>
-          <i id="o" className="fas fa-angle-down fa-2x" />
-          <h2 className="cNameSmall">THIS WEEK</h2>
+          <i id="w" className="fas fa-angle-down fa-2x" />
+          <h2 className="cNameSmall">UPCOMING</h2>
           <ProgressBar className="progressbarSmall" />
         </div>
 

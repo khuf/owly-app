@@ -5,9 +5,9 @@ class ProgressBar extends Component {
   state = {};
   render() {
     return (
-      <div>
-        <div className="text-center">55%</div>
-        <Progress value="55" />
+      <div className="progress_bar">
+        <div className="text-center" />
+        <Progress className="barstyle" value="55" color="danger" />
       </div>
     );
   }

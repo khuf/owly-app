@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import { Collapse, CardBody, Card } from "reactstrap";
+import { Collapse } from "reactstrap";
 import ThisWeek from "./this_week";
+import Finished from "./finished";
+import Upcoming from "./upcoming";
 import ProgressBar from "./progress_bar";
 import "@fortawesome/fontawesome-free/css/all.css";
 
@@ -29,12 +31,15 @@ class Collapsible extends Component {
           onClick={this.toggle}
           style={{ marginBottom: "1rem" }}
         >
-          <i id="i" class="fas fa-angle-down fa-3x" />
-          COURSNAME/CODE
+          <i id="i" className="fas fa-angle-down fa-3x up" />
+          <h3 className="cName">INFO212/SYSTEMUTVIKLING</h3>
           <ProgressBar />
         </div>
+        <hr />
         <Collapse isOpen={this.state.collapse}>
           <ThisWeek />
+          <Finished />
+          <Upcoming />
         </Collapse>
       </div>
     );
