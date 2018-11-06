@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import DefaultProfilePic from "../assets/images/boy.svg";
 
 class ProfileImage extends Component {
   state = {};
@@ -11,7 +10,7 @@ class ProfileImage extends Component {
     return (
       <div className="profile-image-outer-container">
         <div className="profile-image-inner-container c-pointer">
-          <img src={this.props.image ? this.props.image : DefaultProfilePic} />
+          <img src={this.props.image ? this.props.image : null} />
         </div>
       </div>
     );

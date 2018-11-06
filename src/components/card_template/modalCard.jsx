@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./styleCard.css";
 import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import "@fortawesome/fontawesome-free";
+import { Link } from "react-router-dom";
 
 class Card extends Component {
   constructor(props) {
@@ -77,12 +78,12 @@ class Card extends Component {
             ea commodo consequat. Duis aute irure dolor in reprehenderit in
             voluptate velit esse cillum dolore eu fugiat nulla pariatur.
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-            officia deserunt mollit anim id est laborum.
+            officia deserunt mollit anim id est laborumdd.
           </ModalBody>
 
           <ModalFooter>
-            <div className="footerIcons progressIcon" onClick={this.toggle}>
-              <a className="iconName">Progress</a>
+            <div className="footerIcons progressIcon">
+              <Link to={"/courses/" + this.props.courseCode} />
             </div>
             <div className="footerIcons cMaterialIcon" onClick={this.toggle}>
               <a className="iconName">Materials</a>

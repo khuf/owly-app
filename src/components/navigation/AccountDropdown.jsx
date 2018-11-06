@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { auth } from "../../firebase";
 import { Motion, spring } from "react-motion";
+import DashboardIcon from "@material-ui/icons/DashboardOutlined";
+import PersonIcon from "@material-ui/icons/PersonOutlined";
+import LogOutIcon from "@material-ui/icons/ExitToAppOutlined";
 
 class AccountDropdown extends Component {
   constructor() {
@@ -40,9 +43,16 @@ class AccountDropdown extends Component {
               }}
               className="progress-dropdown-content accountBtn"
             >
-              <li className="#"> Profil </li>
-              <li className="#"> Dashbord </li>
+              <li className="#">
+                <DashboardIcon />
+                Dashbord{" "}
+              </li>
+              <li className="#">
+                <PersonIcon />
+                Profil{" "}
+              </li>
               <li className="#" onClick={auth.doSignOut}>
+                <LogOutIcon />
                 Logg ut
               </li>
             </ul>
