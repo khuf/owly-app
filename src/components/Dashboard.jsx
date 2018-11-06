@@ -3,7 +3,7 @@ import { Navbar } from "./navigation/";
 import withAuthorization from "./withAuthorization";
 import { db } from "../firebase";
 import { auth } from "../firebase";
-import Card from "./card_template/modalCard";
+import Card from "./card_template/ModalCard";
 import { Alert } from "reactstrap";
 import "../assets/css/welcome_page.css";
 

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import "./styleCard.css";
+import "./style_card.css";
 import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import "@fortawesome/fontawesome-free";
 import { Link } from "react-router-dom";

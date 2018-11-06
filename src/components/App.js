@@ -8,8 +8,8 @@ import SignUpPage from "./SignUpPage";
 import * as routes from "../constants/routes";
 import withAuthentication from "./withAuthentication";
 import Dashboard from "./Dashboard";
-import cardTemplate from "../components/card_template/modalCard";
-import ProgressPage from "../components/Progress_page/progress_page";
+import CardTemplate from "./card_template/ModalCard";
+import ProgressPage from "./progress_page/Progress_Page";
 
 const App = () => (
   <BrowserRouter>
@@ -18,7 +18,7 @@ const App = () => (
       <Route exact path={routes.SIGN_UP} component={SignUpPage} />
       <Route exact path={routes.SIGN_IN} component={WelcomePage} />
       <Route exact path={routes.HOME} component={Dashboard} />
-      <Route exact path={routes.CARD_TEMPLATE} component={cardTemplate} />
+      <Route exact path={routes.CARD_TEMPLATE} component={CardTemplate} />
       <Route exact path={routes.PROGRESS_PAGE} component={ProgressPage} />
     </div>
   </BrowserRouter>
