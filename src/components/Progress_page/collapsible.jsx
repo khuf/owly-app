@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Collapse } from "reactstrap";
-import ThisWeek from "./this_week";
-import Finished from "./finished";
-import Upcoming from "./upcoming";
-import ProgressBar from "./progress_bar";
+import ThisWeek from "./This_Week";
+import Finished from "./Finished";
+import Upcoming from "./Upcoming";
+import ProgressBar from "./Progress_Bar";
 import "@fortawesome/fontawesome-free/css/all.css";
 
 class Collapsible extends Component {

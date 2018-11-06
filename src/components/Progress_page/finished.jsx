@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Collapse } from "reactstrap";
 
-import ProgressBar from "./progress_bar";
+import ProgressBar from "./Progress_Bar";
 
 class Collapsible extends Component {
   constructor(props) {

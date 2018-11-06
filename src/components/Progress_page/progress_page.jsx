@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Navbar from "../navigation/Navbar";
 import "../../assets/css/studyStyleSheet.css";
-import Collapsible from "./collapsible";
+import Collapsible from "./Collapsible";
 
 class ProgressPage extends Component {
   render() {
