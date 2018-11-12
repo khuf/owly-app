@@ -1,27 +1,39 @@
 import React, { Component } from "react";
 import { Collapse } from "reactstrap";
-import ThisWeek from "./This_Week";
-import Finished from "./Finished";
-import Upcoming from "./Upcoming";
-import ProgressBar from "./Progress_Bar";
+import ProgressBar from "./components/ProgressBar";
 import "@fortawesome/fontawesome-free/css/all.css";
 
 class Collapsible extends Component {
+  /**
+   * We set the initial state of the component. Empty header and the container should be collapsed.
+   */
+  state = {
+    header: "",
+    isCollapsed: false,
+    component: null
+  };
   constructor(props) {
     super(props);
-    this.toggle = this.toggle.bind(this);
-    this.state = { collapse: false };
+
+    this.state = {
+      header: props.header,
+      isCollapsed: props.header,
+      component: props.component
+    };
   }
 
-  toggle() {
-    this.setState({ collapse: !this.state.collapse });
+  /**
+   * Toggles the visiblity of the items that this container holds.
+   */
+  toggle = () => {
+    this.setState({ isCollapsed: !this.state.isCollapsed });
+  };
 
-    if (!this.state.collapse) {
-      document.getElementById("i").className = "fas fa-angle-down fa-3x faster";
-    } else {
-      document.getElementById("i").className = "fas fa-angle-down fa-3x";
-    }
-  }
+  toggleArrowClass = () => {
+    return this.state.isCollapsed
+      ? "fas fa-angle-down fa-3x faster"
+      : "fas fa-angle-down fa-3x up";
+  };
 
   render() {
     return (
@@ -31,15 +43,13 @@ class Collapsible extends Component {
           onClick={this.toggle}
           style={{ marginBottom: "1rem" }}
         >
-          <i id="i" className="fas fa-angle-down fa-3x up" />
-          <h3 className="cName">INFO212/SYSTEMUTVIKLING</h3>
+          <i id="i" className={this.toggleArrowClass()} />
+          <h3 className="cName">{this.state.header}</h3>
           <ProgressBar />
         </div>
         <hr />
-        <Collapse isOpen={this.state.collapse}>
-          <ThisWeek />
-          <Finished />
-          <Upcoming />
+        <Collapse isOpen={this.state.isCollapsed}>
+          {this.state.component}
         </Collapse>
       </div>
     );
