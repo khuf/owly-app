@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import "@fortawesome/fontawesome-free/css/all.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import "../../assets/css/studyStyleSheet.css";
+
 import { Collapse } from "reactstrap";
 import ThisWeek from "./This_Week";
 import Finished from "./Finished";
 import Upcoming from "./Upcoming";
+
 import ProgressBar from "./Progress_Bar";
 
 class Collapsible extends Component {
@@ -34,7 +35,7 @@ class Collapsible extends Component {
           style={{ marginBottom: "1rem" }}
         >
           <i id="i" className="fas fa-angle-down fa-3x up" />
-          <h3 className="cName">INFO212/SYSTEMUTVIKLING</h3>
+          <h3 className="cName">INFO262/INTERACTION DESIGN</h3>
           <ProgressBar />
         </div>
         <hr />

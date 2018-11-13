@@ -3,7 +3,7 @@ import { Collapse } from "reactstrap";
 
 import ProgressBar from "./Progress_Bar";
 
-class Collapsible extends Component {
+class Finished extends Component {
   constructor(props) {
     super(props);
     this.toggle = this.toggle.bind(this);
@@ -50,4 +50,4 @@ class Collapsible extends Component {
   }
 }
 
-export default Collapsible;
+export default Finished;
