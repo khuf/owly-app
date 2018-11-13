@@ -20,9 +20,16 @@ class Collapsible extends Component {
 
   render() {
     return (
-      <div>
+      <div className="pt-4">
         <div className="finishedContent" onClick={this.toggle}>
-          <i id="o" className="fas fa-angle-down fa-2x" />
+          <i
+            id="o"
+            className={
+              this.state.isCollapsed
+                ? "fas fa-angle-up fa-2x"
+                : "fas fa-angle-down fa-2x"
+            }
+          />
           <h2 className="cNameSmall">{this.state.title}</h2>
           <ProgressBar className="progressbarSmall" />
         </div>

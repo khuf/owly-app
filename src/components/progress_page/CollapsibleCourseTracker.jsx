@@ -28,7 +28,14 @@ class CollapsibleCourseTracker extends Component {
     return (
       <div className="h-75vh">
         <h3 onClick={this.toggle}>
-          {this.state.courseCode + " / " + this.state.courseTitle}
+          <i
+            className={
+              this.state.isCollapsed
+                ? "fas fa-angle-up fa-2x"
+                : "fas fa-angle-down fa-2x"
+            }
+          />
+          {" " + this.state.courseCode + " / " + this.state.courseTitle}
         </h3>
         <ProgressBar />
         <Collapse isOpen={this.state.isCollapsed}>
