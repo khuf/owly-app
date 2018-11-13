@@ -111,3 +111,6 @@ a {
 .c-pointer {
   cursor: pointer;
 }
+.h-75vh {
+  min-height: 75vh;
+}

@@ -9,7 +9,7 @@ import * as routes from "../constants/routes";
 import withAuthentication from "./withAuthentication";
 import Dashboard from "./Dashboard";
 import CardTemplate from "./card_template/ModalCard";
-import ProgressPage from "./progress_page/Progress_Page";
+import ProgressPage from "./progress_page/ProgressPage";
 
 const App = () => (
   <BrowserRouter>

@@ -1,47 +1,56 @@
 import React, { Component } from "react";
-import "@fortawesome/fontawesome-free/css/all.css";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import "../../assets/css/studyStyleSheet.css";
 import { Collapse } from "reactstrap";
-import ThisWeek from "./This_Week";
-import Finished from "./Finished";
-import Upcoming from "./Upcoming";
-import ProgressBar from "./Progress_Bar";
+
+import ProgressBar from "./ProgressBar";
 
 class Collapsible extends Component {
   constructor(props) {
     super(props);
-    this.toggle = this.toggle.bind(this);
-    this.state = { collapse: false };
+
+    this.state = {
+      title: this.props.title,
+      isCollapsed: false,
+      component: this.props.component
+    };
   }
 
-  toggle() {
-    this.setState({ collapse: !this.state.collapse });
-
-    if (!this.state.collapse) {
-      document.getElementById("i").className = "fas fa-angle-down fa-3x faster";
-    } else {
-      document.getElementById("i").className = "fas fa-angle-down fa-3x";
-    }
-  }
+  toggle = () => {
+    this.setState(prevState => ({ isCollapsed: !prevState.isCollapsed }));
+  };
 
   render() {
     return (
-      <div className="studyContainer">
-        <div
-          className="studyCourse"
-          onClick={this.toggle}
-          style={{ marginBottom: "1rem" }}
-        >
-          <i id="i" className="fas fa-angle-down fa-3x up" />
-          <h3 className="cName">INFO212/SYSTEMUTVIKLING</h3>
-          <ProgressBar />
+      <div>
+        <div className="finishedContent" onClick={this.toggle}>
+          <i id="o" className="fas fa-angle-down fa-2x" />
+          <h2 className="cNameSmall">{this.state.title}</h2>
+          <ProgressBar className="progressbarSmall" />
         </div>
-        <hr />
-        <Collapse isOpen={this.state.collapse}>
-          <ThisWeek />
-          <Finished />
-          <Upcoming />
+        <Collapse isOpen={this.state.isCollapsed}>
+          <div className="container">
+            <div className="row">
+              <div className="col">
+                <h4 className="titletext">
+                  CHAPTER BLABLALBA{" "}
+                  <span>
+                    <i class="fas fa-check fa-2x" />
+                  </span>
+                </h4>
+                <h4 className="titletext">
+                  CHAPTER BLABLALBA{" "}
+                  <span>
+                    <i class="fas fa-check fa-2x" />
+                  </span>
+                </h4>
+                <h4 className="titletext">
+                  CHAPTER BLABLALBA{" "}
+                  <span>
+                    <i class="fas fa-check fa-2x" />
+                  </span>
+                </h4>
+              </div>
+            </div>
+          </div>
         </Collapse>
       </div>
     );
