@@ -11,10 +11,6 @@ import {
  * A horizontal navigation bar that stays fixed at the top of the page.
  */
 class Navbar extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <nav className="navbar bg-dark ">

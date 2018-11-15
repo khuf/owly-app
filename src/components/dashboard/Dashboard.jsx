@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Navbar } from "./navigation/";
-import withAuthorization from "./withAuthorization";
-import { db } from "../firebase";
-import { auth } from "../firebase";
-import Card from "./card_template/ModalCard";
+import { Navbar } from "../navigation";
+import withAuthorization from "../auth/withAuthorization";
+import { db } from "../../firebase";
+import { auth } from "../../firebase";
+import Card from "./CourseCard";
 import { Alert } from "reactstrap";
-import "../assets/css/welcome_page.css";
+import "../../assets/css/welcome_page.css";
 
 class Dashboard extends Component {
   state = {};

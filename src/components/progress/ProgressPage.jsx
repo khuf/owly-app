@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Navbar from "../navigation/Navbar";
-import "../../assets/css/studyStyleSheet.css";
+import "../../assets/css/study.css";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import CollapsibleCourseTracker from "./CollapsibleCourseTracker";
