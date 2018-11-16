@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import "./style_card.css";
+import "../../assets/css/card.css";
 import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import "@fortawesome/fontawesome-free";
 import { Link } from "react-router-dom";
 
-class Card extends Component {
+class CourseCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -101,4 +101,4 @@ class Card extends Component {
   }
 }
 
-export default Card;
+export default CourseCard;

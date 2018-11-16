@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Logo from "../assets/images/logo.svg";
-import "../assets/css/welcome_page.css";
-import { auth } from "../firebase";
-import { db } from "../firebase";
+import Logo from "../../assets/images/logo.svg";
+import "../../assets/css/welcome_page.css";
+import { auth } from "../../firebase";
+import { db } from "../../firebase";
 import { withRouter } from "react-router-dom";
-import * as routes from "../constants/routes";
+import * as routes from "../../constants/routes";
 
 const INITIAL_STATE = {
   username: "",

@@ -124,3 +124,12 @@ hr {
   color: rgb(187, 187, 187);
   text-shadow: 1px 2px rgba(0, 0, 0, 0.1);
 }
+
+/*----------------Carousel-----------------*/
+.carousel .slide {
+  background: none !important;
+}
+
+.carousel .control-dots .dot {
+  color: red !important;
+}

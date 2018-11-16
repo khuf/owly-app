@@ -1,10 +1,10 @@
 import Logo from "../../assets/images/logo.svg";
-import React, { Component } from "react";
+import React from "react";
 import "../../assets/css/welcome_page.css";
 import { withRouter } from "react-router-dom";
 import { auth } from "../../firebase";
 import * as routes from "../../constants/routes";
-import { PasswordForgetForm } from "../PasswordForget";
+import { PasswordForgetForm } from "./PasswordForget";
 
 const byPropKey = (propertyName, value) => () => ({
   [propertyName]: value
@@ -16,8 +16,6 @@ const INITIAL_STATE = {
   error: null,
   showModal: false
 };
-
-const modal = () => <PasswordForgetForm showModal={true} />;
 
 class WelcomePage extends React.Component {
   constructor(props) {
