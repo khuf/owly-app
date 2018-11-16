@@ -55,7 +55,7 @@ class WelcomePage extends React.Component {
 
     return (
       <div className="container-fluid bg">
-        <div className="col-lg-">
+        <div className="col-lg- mt-4">
           <div className="logo_area">
             <img src={Logo} alt="logo" />
             <h1 className="text-white">
