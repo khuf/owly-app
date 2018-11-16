@@ -84,6 +84,7 @@ class CourseCard extends Component {
           <ModalFooter>
             <div className="footerIcons progressIcon">
               <Link to={"/courses/" + this.props.courseCode} />
+              <a className="iconName">Progress</a>
             </div>
             <div className="footerIcons cMaterialIcon" onClick={this.toggle}>
               <a className="iconName">Materials</a>

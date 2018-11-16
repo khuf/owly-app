@@ -17,6 +17,10 @@
   grid-template-columns: repeat(5, 1fr);
 }
 
+.pointer-section {
+  cursor: pointer;
+}
+
 .progress_bar {
   grid-column: 1/6;
 }
@@ -71,6 +75,7 @@ hr {
 }
 
 .finishedContent {
+  cursor: pointer;
   position: relative;
   left: 4rem;
   border-radius: 1rem;
@@ -105,6 +110,7 @@ hr {
   margin: 1rem;
   width: 20rem;
   height: 3rem;
+  padding: 0.4rem;
   background-color: rgb(218, 218, 218);
   border-radius: 1rem;
   box-shadow: 1px 2px 0px 0px rgba(0, 0, 0, 0.2);
@@ -132,4 +138,12 @@ hr {
 
 .carousel .control-dots .dot {
   color: red !important;
+}
+
+.carousel .control-next.control-arrow:before {
+  border-left: 8px solid red !important;
+}
+
+.carousel .control-prev.control-arrow:before {
+  border-right: 8px solid rgb(255, 0, 0) !important;
 }

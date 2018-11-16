@@ -47,12 +47,12 @@ body {
 }
 
 /*--------------------MODAL--------------------*/
-
+/*
 .modal {
   top: 3.5rem;
 }
 
-/*.modal-open {
+.modal-open {
 }
 
 .modal-content {

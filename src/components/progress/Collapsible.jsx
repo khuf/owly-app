@@ -38,19 +38,19 @@ class Collapsible extends Component {
             <div className="row">
               <div className="col">
                 <h4 className="titletext">
-                  CHAPTER BLABLALBA{" "}
+                  <a className="material">CHAPTER BLABLALBA </a>
                   <span>
                     <i class="fas fa-check fa-2x" />
                   </span>
                 </h4>
                 <h4 className="titletext">
-                  CHAPTER BLABLALBA{" "}
+                  <a className="material">CHAPTER BLABLALBA </a>
                   <span>
                     <i class="fas fa-check fa-2x" />
                   </span>
                 </h4>
                 <h4 className="titletext">
-                  CHAPTER BLABLALBA{" "}
+                  <a className="material">CHAPTER BLABLALBA </a>
                   <span>
                     <i class="fas fa-check fa-2x" />
                   </span>

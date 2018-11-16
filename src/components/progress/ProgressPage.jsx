@@ -13,7 +13,7 @@ class ProgressPage extends Component {
         <div className="container w-50 pt-4">
           <div className="row">
             <div className="col">
-              <Carousel showThumbs={false} emulateTouch>
+              <Carousel showThumbs={false} emulateTouch useKeyboardArrows>
                 <CollapsibleCourseTracker
                   courseTitle="Sosial Nettverksteori"
                   courseCode="INFO207"

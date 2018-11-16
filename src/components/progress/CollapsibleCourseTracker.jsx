@@ -27,7 +27,7 @@ class CollapsibleCourseTracker extends Component {
   render() {
     return (
       <div className="h-75vh">
-        <h3 onClick={this.toggle}>
+        <h3 className="pointer-section" onClick={this.toggle}>
           <i
             className={
               this.state.isCollapsed
